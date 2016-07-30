@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/**
+ * Common CSS Reset
+ */
+
+
+* { box-sizing: border-box; }
+
+p, span,div,h1,h2,h3,h4,h5,h6 {
+	margin: 0; padding: 0; /* font-weight: 500; */
+}
+p { font-weight: 400; }
+a {
+	color: #0000FF; // #2DB7F5; // #0078E7;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+}
+
+
+.center { text-align: center; }
+.float-left { float: left !important; }
+.float-right { float: right !important; }
+.underline { text-decoration: underline; }
+.uppercase { text-transform: uppercase; }
+.centered { margin: inherit auto; }
+.div-hidden { display: none !important; }
+.invisible { visibility: hidden; display: none !important; }
+
+.cursor-pointer { cursor: pointer; }
+.bg-light { background-color: #F7F7F7; }
+
+
+
+.m-0 { margin: 0 !important; }
+.m-t-0 { margin-top: 0px !important; }
+.m-l-0 { margin-left: 0px !important; }
+.m-r-0 { margin-right: 0px !important; }
+.m-b-0 { margin-bottom: 0px !important; }
+
+.p-0 { padding: 0 !important; }
+.p-t-0 { padding-top: 0px !important; }
+.p-l-0 { padding-left: 0px !important; }
+.p-r-0 { padding-right: 0px !important; }
+.p-b-0 { padding-bottom: 0px !important; }
+
+
+
+$max_pixels_length: 12;
+@mixin generate-margins-and-paddings {
+	@for $i from 1 through $max_pixels_length {
+		$pixels: $i * 10;
+		.m-tb-#{$pixels} {
+			margin-top: #{$pixels}px !important;
+			margin-bottom: #{$pixels}px !important;
+		}
+		.m-t-#{$pixels} {
+			margin-top: #{$pixels}px !important;
+		}
+		.m-l-#{$pixels} {
+			margin-left: #{$pixels}px !important;
+		}
+		.m-b-#{$pixels} {
+			margin-bottom: #{$pixels}px !important;
+		}
+		.m-r-#{$pixels} {
+			margin-right: #{$pixels}px !important;
+		}
+
+
+		.p-tb-#{$pixels} {
+			padding-top: #{$pixels}px !important;
+			padding-bottom: #{$pixels}px !important;
+		}
+		.p-t-#{$pixels} {
+			padding-top: #{$pixels}px !important;
+		}
+		.p-b-#{$pixels} {
+			padding-bottom: #{$pixels}px !important;
+		}
+		.p-l-#{$pixels} {
+			padding-left: #{$pixels}px !important;
+		}
+		.p-r-#{$pixels} {
+			padding-right: #{$pixels}px !important;
+		}
+
+	}
+}
+@include generate-margins-and-paddings;

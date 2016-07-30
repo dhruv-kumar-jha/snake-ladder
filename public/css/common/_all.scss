@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+
+#wrapper {
+	width: $wrapper_width;
+	min-width: $wrapper_width;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+
+header#main {
+	text-align: center;
+	padding: 20px 0;
+
+	h1 {
+		font-size: 50px;
+		line-height: 60px;
+		font-family: $game_font;
+		color: #000;
+		text-shadow: 2px 2px 2px #FFF;
+	}
+
+}
+
+
+
+
+aside#main {
+	position: fixed;
+	top: 102px;
+	right: 0;
+	width: 300px;
+	min-height: 300px;
+	padding: 25px;
+	border: 2px solid rgb(253, 202, 48);
+	background-color: rgb(255, 187, 17);
+	box-shadow: 0 11px 23px 0 #03A9F4, 0 6px 11px 0 #03A9F4;
+	z-index: 500;
+	word-wrap: break-word;
+
+	h2 {
+		font-family: $game_font;
+		font-size: 18px;
+		line-height: 20px;
+		color: #000;
+		text-shadow: 2px 2px 2px #FFF;
+	}
+
+	.player-info {
+		background: rgba(0,0,0,0.5);
+		padding: 10px 20px;
+		margin-top: 20px;
+		border-radius: 5px;
+		color: rgba(255,255,255,0.5);
+		border: 1px solid #CCC;
+	
+		.name {
+			font-size: 22px;
+			color: #ABFF00;
+			text-shadow: 2px 2px 2px #000;
+		}
+
+	}
+
+
+	.dice {
+		margin: 20px;
+		text-align: center;
+
+		.number {
+			font-family: $game_font;
+			font-size: 20px;
+			line-height: 24px;
+			padding: 10px;
+			border-radius: 5px;
+			background: #000;
+			color: #FFF;
+			width: 48px;
+			margin: 0 auto;
+			border: 2px solid #FFF;
+		}
+	}
+
+	.moves-to-win {
+		margin-top: 10px;
+		font-family: monospace, arial;
+		font-size: 14px;
+		line-height: 18px;
+		color: #FFF;
+	}
+
+	.winner {
+		margin-top: 30px;
+		background: #2DA181;
+		font-size: 20px;
+		font-family: $game_font;
+		padding: 20px;
+
+		.game-over {
+			text-transform: uppercase;
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+
+.gameboard-container {
+	background-color: yellow;
+	position: relative;
+
+	@include transition();
+}
+
+
+
+
+
+
+
+.gameboard {
+	border: 2px solid #222;
+	background: #222;
+	@include disable_text_election();
+
+	.tile {
+		position: relative;
+		flex-basis: $box_width;
+		height: $box_height; 
+		border: 2px solid #222;
+		color: #000;
+		background: #F7F7F7;
+	}
+
+	.number {
+		font-family: $tile_letter_font;
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		font-size: 24px;
+		line-height: 24px;
+		color: #000;
+		// font-weight: bold;
+		opacity: 0.7;
+	}
+
+
+	.tile {
+		&.yellow {
+			background-color: #F1D539;
+		}
+		&.white {
+			background-color: #FFF;
+		}
+		&.red {
+			background-color: #DD1726;
+			.number { color: #FFF; }
+		}
+		&.blue {
+			background-color: #0E73B3;
+			.number { color: #FFF; }
+		}
+		&.green {
+			background-color: #189774;
+			.number { color: #FFF; }
+		}
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+.gameboard-container .ladders {
+	position: absolute;
+	background: rgba(255,255,255,0.05);
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 200;
+
+	.ladder {
+		background: rgba(0,0,0,0.3);
+		position: absolute;
+		background: #000;
+		width: 60px;
+		margin: 15px;
+		// background: url('/images/ladder.png') repeat;
+		background: url('/images/ladder.png') repeat-y; //  rgba(0,0,0,0.4)
+		background-position: center;
+	}
+
+}
+
+
+
+
+.gameboard-container .game-over {
+	position: absolute;
+	background: rgba(255,255,255,0.05);
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 200;
+	background: rgba(0,0,0,0.65);
+	color: #FFF;
+	@include transition();
+
+	align-items: center;
+	justify-content: center;
+
+	h2 {
+		font-family: $game_font;
+		font-size: 50px;
+		text-transform: uppercase;
+	}
+
+}
+
+
+
+
+.gameboard-container .snakes {
+	position: absolute;
+	background: rgba(255,255,255,0.05);
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+
+	.snake {
+		position: absolute;
+		width: 60px;
+		margin: 15px;
+		background: url('/images/snake.png') repeat-y;
+		background-size: 100% 100%;
+	}
+
+}
+
+
+

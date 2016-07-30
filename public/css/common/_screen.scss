@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+
+.screen {
+	padding: 30px;
+	border: 4px solid #222;
+	text-align: center;
+	font-family: $game_font;
+	font-size: 20px;
+	line-height: 30px;
+	margin-top: 10px;
+
+	background-color: #999;
+
+	h2 {
+		font-weight: normal;
+		color: #777;
+	}
+
+
+	.options {
+		margin-top: 30px;
+
+		a {
+			margin: 0 10%;
+			display: block;
+			background-color: #333;
+			color: #999;
+			margin-bottom: 4px;
+			padding: 4px;
+			@include transition();
+
+			&:last-child { margin-bottom: 0; }
+			&:hover { background-color: #222; }
+			&:active { background-color: #000; }
+		}
+	}
+
+
+	.player-input {
+		margin-top: 30px;
+
+		input {
+			font-family: $game_font;
+			border: none;
+			border-bottom: 4px solid #222;
+			font-size: 20px;
+			line-height: 30px;
+			color: #000;
+			background-color: #999;
+			outline: none;
+			cursor: pointer;
+		}
+		@include placeholder( $color: rgba(0, 0, 0, 0.4) );
+
+	}
+
+
+
+}
+
+
+
+
+
+.screen .card-container {
+	margin: 20px 40px;
+
+	.card {
+		background: #FFF;
+		padding: 15px 30px;
+		font-size: 20px;
+		margin-bottom: 20px;
+		box-shadow: 2px 3px 4px #777;
+		border-radius: 3px;
+		cursor: move;
+
+		&:last-child { margin-bottom: 0; }
+
+		.name {
+			margin-bottom: 20px;
+		}
+
+		p {
+			font-size: 16px;
+			text-align: left;
+			span {
+				display: inline-block;
+				width: 75%;
+				color: #999;
+			}
+		}
+
+		&.winner { background: #CCFFF0;  }
+
+	}
+
+
+
+}
+
+
+
+

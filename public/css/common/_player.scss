@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+
+.gameboard-container .players {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	@include transition();
+
+
+	.player {
+		@include transition( $duration: 0.8s );
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		background-color: #000;
+		border-radius: 12px;
+		color: #FFF;
+		text-align: center;
+	}
+
+}
+
+
+
